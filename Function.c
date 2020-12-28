@@ -1,3 +1,4 @@
+//Credit-My Dear Brother -Mahir Labib Dihan-https://github.com/mahirlabibdihan
 #include<stdio.h> 
 #include<stdlib.h>
 
