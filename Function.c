@@ -170,7 +170,7 @@ void Function(int a,int b) //Function definition = Function Declaration + Statem
 }
 
 -----------------------------####################------------------------------------
-
+----->Muntasir Mamun Nahid
 
 
 //passing structure to a function...
@@ -237,3 +237,72 @@ int main()
 	passingArray(arr);
 	//if arra have no given size..we have to pass the size too..
 }
+
+//passing an 2D array to a function:
+//Invalid way:
+// void printArray(int t[][]);
+// void printArray(int **t);
+
+
+//Valid way:
+
+void printArray(int t[3][3]);
+void printArray(int t[][3]);
+//which means we must have to send column number
+//but sending row number is not compulsory..
+example:
+void printArray(int t[][3])
+{
+	for(int i=0;i<3;i++)
+	{
+		for(j=0;j<3;j++)
+		{
+			printf("%d\t",t[i][j]);
+		}printf("\n");
+	}
+}
+
+int main()
+{
+	int arr[3][3]={1,2,3,,4,5,6,7,8,9};
+	printArray(arr);
+}
+
+
+//sending 2D array as a pointer:
+
+void printarrptr(int **t) {
+    int i,j;
+    for(i = 0; i<3; i++) {
+        for(j = 0; j<3; j++) 
+            printf("%d\t",t[i][j]);
+        printf("\n");
+    }
+}
+int main(void) {
+    int *arrptr[3];
+    int i,j;
+
+    for(i = 0; i < 3; i++) {
+        arrptr[i] = (int *) malloc(3 * sizeof(int));
+        for(j = 0; j < 3; j++)
+            arrptr[i][j] = (3 * i) + j + 1;
+    }
+    printarrptr(arrptr);
+    for(i = 0; i < 3; i++)
+        free(arrptr[i]);
+    return 0;
+}
+
+
+//command line argument:
+
+
+int main(int argc,char *argv[])//argc->argument counter..argv[]->argument values
+//The value of the argc argument is the number of command line arguments. The argv argument is a vector of C strings; its elements are the individual command line argument strings. The file name of the program being run is also included in the vector as the first element; the value of argc counts this element
+argv[0]->contains the name of the running programme.
+aragv[1]->contains the string passed to the programme as the first element
+aragv[n]->contains the string passed to the programme as the nth element
+
+
+
